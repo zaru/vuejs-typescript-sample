@@ -12,12 +12,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { State } from 'vuex-class'
+import { Getter } from 'vuex-class'
 import { Todo } from '../types'
 
 @Component
 export default class TodoList extends Vue {
-  @State todos: Todo[]
+  @Getter todos: Todo[]
 
   newTodo: string = ''
 
