@@ -4,15 +4,13 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 
-export default Vue.extend({
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  }
-})
+@Component
+export default class HelloWorld extends Vue {
+  name: string = 'HelloWorld'
+  msg: string = 'Welcome to Your Vue.js App'
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

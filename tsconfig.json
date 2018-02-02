@@ -5,6 +5,7 @@
     "strict": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "moduleResolution": "node",
     "noImplicitThis": true
   },
