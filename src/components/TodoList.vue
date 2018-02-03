@@ -1,10 +1,21 @@
 <template>
   <div class="todo-lists">
-    <input type="text" v-model="newTodo" @keyup.enter="addTodo">
+    <p>Add new todo <input type="text" v-model="newTodo.text" @keyup.enter="addTodo(newTodo)"></p>
 
-    <ul>
-      <li v-for="todo in todos" :key="todo.text">{{ todo.text }}</li>
-    </ul>
+    <div class="container">
+      <div class="column">
+        <h3>Todo</h3>
+        <ul>
+          <li v-for="(todo, index) in todos" :key="index">{{ todo.text }}</li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Done</h3>
+        <ul>
+          <li v-for="(todo, index) in dones" :key="index">{{ todo.text }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -12,35 +23,36 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { Getter } from 'vuex-class'
+import { Getter, Mutation } from 'vuex-class'
 import { Todo } from '../types'
 
 @Component
 export default class TodoList extends Vue {
   @Getter todos: Todo[]
+  @Getter dones: Todo[]
+  @Mutation addTodo: void
 
-  newTodo: string = ''
-
-  addTodo (): void {
-    this.todos.push({ text: this.newTodo })
+  newTodo: Todo = {
+    text: '',
+    done: false
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
+<style lang="scss" scoped>
+  .container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    .column {
+      min-width: 250px;
+      border: 1px solid #cccccc;
+      padding: 10px;
+      margin: 10px;
+    }
   }
   li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
+    text-align: left;
   }
 </style>

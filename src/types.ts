@@ -9,5 +9,6 @@ export interface Counter {
 
 // Models
 export interface  Todo {
-  text: string
+  text: string,
+  done: boolean
 }
