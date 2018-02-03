@@ -1,5 +1,5 @@
 import { GetterTree, MutationTree } from 'vuex'
-import { State } from '../types'
+import {State, Todo} from '../types'
 
 type TodoGetter = GetterTree<State, any>
 
@@ -16,9 +16,12 @@ const getters: TodoGetter = {
 }
 
 const mutations: MutationTree<State> = {
-  addTodo(state, newTodo) {
+  addTodo(state, newTodo: Todo) {
     const todoCopy = Object.assign({}, newTodo)
     state.todos.push(todoCopy)
+  },
+  done(state, todo: Todo) {
+    todo.done = true
   }
 }
 

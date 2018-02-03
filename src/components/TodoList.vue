@@ -6,7 +6,7 @@
       <div class="column">
         <h3>Todo</h3>
         <ul>
-          <li v-for="(todo, index) in todos" :key="index">{{ todo.text }}</li>
+          <li v-for="(todo, index) in todos" :key="index" @click="done(todo)">{{ todo.text }}</li>
         </ul>
       </div>
       <div class="column">
@@ -31,6 +31,7 @@ export default class TodoList extends Vue {
   @Getter todos: Todo[]
   @Getter dones: Todo[]
   @Mutation addTodo: void
+  @Mutation done: void
 
   newTodo: Todo = {
     text: '',
@@ -54,5 +55,6 @@ export default class TodoList extends Vue {
   }
   li {
     text-align: left;
+    cursor: pointer;
   }
 </style>
