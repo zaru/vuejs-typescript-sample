@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import TodoList from '@/components/TodoList'
+import HelloWorld from '@/components/HelloWorld.vue'
+import TodoList from '@/components/TodoList.vue'
 
 Vue.use(Router)
 

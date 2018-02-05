@@ -13,10 +13,15 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "noImplicitThis": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "components/*": ["src/components/*"]
+    }
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./src/**/*.vue"
   ],
   "exclude": [
     "node_modules"
